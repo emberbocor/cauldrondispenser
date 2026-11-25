@@ -35,7 +35,7 @@ Point a **vanilla dispenser** at a cauldron and give it a redstone pulse. All si
 What stays vanilla:
 
 - **Droppers** keep their normal transfer and ejection behavior.
-- **No cauldron in front, or a cauldron the item cannot be used on**: the dispenser does what vanilla does. Full buckets pour their contents into the world or are thrown out, empty buckets pick up a fluid source, glass bottles fill from water or a full beehive, and water bottles turn dirt into mud. This includes a full bucket aimed at a full cauldron or one holding something else, an empty bucket aimed at a cauldron that is not full, and a water bottle aimed at a full water cauldron.
+- **No cauldron in front, or a cauldron the item cannot be used on**: the dispenser does what vanilla does. Full buckets pour their contents into the world or are thrown out, empty buckets pick up a fluid source, glass bottles fill from water or a full beehive, and water bottles turn dirt into mud. This includes a full bucket aimed at a full cauldron or one holding something else, an empty bucket aimed at a cauldron that is not full, a lava or powder snow bucket aimed at a cauldron with water above it, and a water bottle aimed at a full water cauldron.
 - **Other items and other cauldron uses**: washing leather armor, banners and shulker boxes, other potions and items from other mods are not handled.
 - **Cauldrons from other mods** are not touched.
 
@@ -43,12 +43,12 @@ What stays vanilla:
 
 | | NeoForge | Forge | Fabric |
 |---|---|---|---|
-| Minecraft | 1.21.1 | 1.21.1 | 1.21.1 |
+| Minecraft | 1.21.11 | 1.21.11 | 1.21.11 |
 | Java | 21 | 21 | 21 |
-| Loader | NeoForge 21.1.1 or newer | Forge 52.0.0 or newer | Fabric Loader 0.15.11 or newer |
-| Jar | `cauldrondispenser-neoforge-1.21.1-<version>.jar` | `cauldrondispenser-forge-1.21.1-<version>.jar` | `cauldrondispenser-fabric-1.21.1-<version>.jar` |
+| Loader | NeoForge 21.11.42 or newer | Forge 61.0.1 or newer | Fabric Loader 0.17.3 or newer |
+| Jar | `cauldrondispenser-neoforge-1.21.11-<version>.jar` | `cauldrondispenser-forge-1.21.11-<version>.jar` | `cauldrondispenser-fabric-1.21.11-<version>.jar` |
 
-On Minecraft 1.21.1, NeoForge and Forge are separate loaders that do not run each other's mods, so each has its own jar. Pick the jar that matches your game's loader.
+On Minecraft 1.21.11, NeoForge and Forge are separate loaders that do not run each other's mods, so each has its own jar. Pick the jar that matches your game's loader.
 
 The Fabric version does not need Fabric API.
 
@@ -68,7 +68,7 @@ The world opens normally. The mod saves nothing of its own: cauldrons and dispen
 
 ## Compatibility
 
-- Targets Minecraft 1.21.1. Use one matching loader jar at a time.
+- Targets Minecraft 1.21.11. Use one matching loader jar at a time.
 - **Ranching Dispensers:** the cauldron comes first. An empty bucket aimed at a full cauldron fills from the cauldron; without a cauldron, or with one it cannot fill from, Ranching Dispensers can still milk a cow or goat in front. The two mods do not depend on each other.
 - **Placing Dispensers:** buckets and bottles have their own vanilla dispenser action, so Placing Dispensers leaves them alone and both mods work side by side.
 - Mods that replace the dispenser behavior of buckets or bottles: when the replacement builds on the vanilla default dispenser behavior, a cauldron in front is still filled or emptied first and the replacement handles everything else. A replacement that does not build on it takes over completely.
@@ -83,7 +83,7 @@ Use JDK 21 and the included Gradle wrapper:
 
 Release jars are written to `neoforge/build/libs/`, `forge/build/libs/` and `fabric/build/libs/`. Use Fabric's remapped jar from `fabric/build/libs/`; development jars are not release artifacts.
 
-Development profiles use `runs/1.21.1/neoforge` for both NeoForge sides, and separate `runs/1.21.1/forge-client`, `forge-server`, `fabric-client` and `fabric-server` directories. These directories are ignored by Git.
+Development profiles use `runs/1.21.11/neoforge` for both NeoForge sides, and separate `runs/1.21.11/forge-client`, `forge-server`, `fabric-client` and `fabric-server` directories. These directories are ignored by Git.
 
 ## License
 

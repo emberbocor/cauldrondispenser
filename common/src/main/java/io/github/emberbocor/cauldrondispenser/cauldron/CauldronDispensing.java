@@ -10,6 +10,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.tags.FluidTags;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.PotionContents;
@@ -43,12 +44,12 @@ public final class CauldronDispensing {
                         SoundEvents.BUCKET_EMPTY, new ItemStack(Items.BUCKET));
             }
         } else if (stack.is(Items.LAVA_BUCKET)) {
-            if (state.is(Blocks.CAULDRON)) {
+            if (state.is(Blocks.CAULDRON) && !isUnderWater(level, pos)) {
                 return empty(level, pos, Blocks.LAVA_CAULDRON.defaultBlockState(),
                         SoundEvents.BUCKET_EMPTY_LAVA, new ItemStack(Items.BUCKET));
             }
         } else if (stack.is(Items.POWDER_SNOW_BUCKET)) {
-            if (state.is(Blocks.CAULDRON) || state.is(Blocks.POWDER_SNOW_CAULDRON) && !isFull(state)) {
+            if ((state.is(Blocks.CAULDRON) || state.is(Blocks.POWDER_SNOW_CAULDRON) && !isFull(state)) && !isUnderWater(level, pos)) {
                 return empty(level, pos, Blocks.POWDER_SNOW_CAULDRON.defaultBlockState().setValue(LayeredCauldronBlock.LEVEL, 3),
                         SoundEvents.BUCKET_EMPTY_POWDER_SNOW, new ItemStack(Items.BUCKET));
             }
@@ -84,6 +85,11 @@ public final class CauldronDispensing {
 
     private static boolean isFull(BlockState state) {
         return state.getValue(LayeredCauldronBlock.LEVEL) == LayeredCauldronBlock.MAX_FILL_LEVEL;
+    }
+
+    // As the player interaction: no lava or powder snow is poured into a cauldron with water above it.
+    private static boolean isUnderWater(ServerLevel level, BlockPos pos) {
+        return level.getFluidState(pos.above()).is(FluidTags.WATER);
     }
 
     private static ItemStack empty(ServerLevel level, BlockPos pos, BlockState filled, SoundEvent sound, ItemStack result) {
