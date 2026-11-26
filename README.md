@@ -43,12 +43,12 @@ What stays vanilla:
 
 | | NeoForge | Forge | Fabric |
 |---|---|---|---|
-| Minecraft | 26.2 | 26.2 | 26.2 |
+| Minecraft | 26.3 | 26.3 | 26.3 |
 | Java | 25 | 25 | 25 |
-| Loader | NeoForge 26.2.0.0-beta or newer | Forge 65.0.0 or newer | Fabric Loader 0.18.4 or newer |
-| Jar | `cauldrondispenser-neoforge-26.2-<version>.jar` | `cauldrondispenser-forge-26.2-<version>.jar` | `cauldrondispenser-fabric-26.2-<version>.jar` |
+| Loader | NeoForge 26.3.0.0-beta or newer | Forge 66.0.0 or newer | Fabric Loader 0.18.4 or newer |
+| Jar | `cauldrondispenser-neoforge-26.3-<version>.jar` | `cauldrondispenser-forge-26.3-<version>.jar` | `cauldrondispenser-fabric-26.3-<version>.jar` |
 
-On Minecraft 26.2, NeoForge and Forge are separate loaders that do not run each other's mods, so each has its own jar. Pick the jar that matches your game's loader.
+On Minecraft 26.3, NeoForge and Forge are separate loaders that do not run each other's mods, so each has its own jar. Pick the jar that matches your game's loader.
 
 The Fabric version does not need Fabric API.
 
@@ -68,7 +68,7 @@ The world opens normally. The mod saves nothing of its own: cauldrons and dispen
 
 ## Compatibility
 
-- Targets Minecraft 26.2. Use one matching loader jar at a time.
+- Targets Minecraft 26.3. Use one matching loader jar at a time.
 - **Ranching Dispensers:** the cauldron comes first. An empty bucket aimed at a full cauldron fills from the cauldron; without a cauldron, or with one it cannot fill from, Ranching Dispensers can still milk a cow or goat in front. The two mods do not depend on each other.
 - **Placing Dispensers:** buckets and bottles have their own vanilla dispenser action, so Placing Dispensers leaves them alone and both mods work side by side.
 - Mods that replace the dispenser behavior of buckets or bottles: when the replacement builds on the vanilla default dispenser behavior, a cauldron in front is still filled or emptied first and the replacement handles everything else. A replacement that does not build on it takes over completely.
@@ -83,7 +83,7 @@ Use JDK 25 and the included Gradle wrapper:
 
 Release jars are written to `neoforge/build/libs/`, `forge/build/libs/` and `fabric/build/libs/`. Use Fabric's ordinary jar from `fabric/build/libs/`; development jars are not release artifacts.
 
-Development profiles use `runs/26.2/neoforge` for both NeoForge sides, and separate `runs/26.2/forge-client`, `forge-server`, `fabric-client` and `fabric-server` directories. These directories are ignored by Git.
+Development profiles use `runs/26.3/neoforge` for both NeoForge sides, and separate `runs/26.3/forge-client`, `forge-server`, `fabric-client` and `fabric-server` directories. These directories are ignored by Git.
 
 ## License
 
